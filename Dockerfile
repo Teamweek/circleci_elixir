@@ -16,9 +16,9 @@ RUN apt-get install -y \
     unixodbc-dev \
     libsctp-dev \
     libwxgtk3.0-dev
-RUN echo "deb [trusted=yes] s3://teamweek-private-packages.s3.amazonaws.com/debian stable main" | \
-  tee /etc/apt/sources.list.d/teamweek_private_packages.list
-RUN echo -e "AccessKeyId = $AWS_ACCESS_KEY_ID\nSecretAccessKey = $AWS_SECRET_ACCESS_KEY\nToken = ''" | \
-  tee /etc/apt/s3auth.conf > /dev/null
+RUN echo "deb [trusted=yes] s3://teamweek-private-packages.s3.amazonaws.com/debian stable main" \
+      | tee /etc/apt/sources.list.d/teamweek_private_packages.list
+RUN echo -e "AccessKeyId = $AWS_ACCESS_KEY_ID\nSecretAccessKey = $AWS_SECRET_ACCESS_KEY\nToken = ''" \
+      | tee /etc/apt/s3auth.conf > /dev/null
 
 USER circleci
