@@ -7,7 +7,8 @@ RUN apt-get update; \
       postgresql-client-9.6 \
       wkhtmltopdf
 
+USER circleci
+
 RUN mix local.rebar --force; \
     mix local.hex --force
       
-USER circleci
